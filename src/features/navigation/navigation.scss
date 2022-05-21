@@ -1,0 +1,220 @@
+@import '../../App.scss';
+
+.navigation-container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    .menu-pop-up{
+
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 60%;
+        height: 100%;
+        background-color: $pop-up-background-colour;
+
+        .menu-pop-up-container{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+
+
+            .menu-pop-up-container-close{
+
+                flex: 1;
+                display: flex;
+                justify-content: end;
+                align-items: center;
+
+                .menu-icon{
+                    margin-right: 10px;
+                }
+                
+
+            }
+
+            .menu-pop-up-container-heading{
+
+                flex: 1;
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                flex-direction: column;
+
+                h2{
+                    padding: 0;
+                    margin: 0;
+                }
+
+            }
+
+            .menu-pop-up-container-tabs{
+
+                flex: 8;
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                flex-direction: column;
+
+                .navigation-buttons{
+
+                    color: black;
+                    background-color: $naviogation-button-colour;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    width: 80%;
+                    border: none;
+        
+                    @media only screen and (max-width: 1050px) {
+                        height: 70px;
+                    }
+                  
+        
+                }
+        
+                .navigation-buttons-selected{
+        
+                    color: white;
+                    background-color: $selected-button-colour;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    width: 80%;
+                    border: none;
+        
+                    @media only screen and (max-width: 1050px) {
+                        height: 70px;
+                    }
+        
+                }
+
+            }
+            
+
+        }
+
+
+    }
+
+    .navigation-app-logo{
+
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .side-menu-button{
+            color: black;
+        }
+
+        .app-icon-img {
+            width: 100%;
+        }
+        
+
+    }
+
+    .navigation-tabs{
+
+        flex: 6;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+
+        .navigation-buttons{
+
+            color: black;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 80%;
+            font-size: 20px;
+            background-color: transparent;
+            background-repeat: no-repeat;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            outline: none;
+
+            @media only screen and (max-width: 1050px) {
+                height: 70px;
+            }
+          
+
+        }
+
+        .navigation-buttons-selected{
+
+            color: white;
+            background-color: $selected-button-colour;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 80%;
+            border: none;
+            font-size: 20px;
+
+            @media only screen and (max-width: 1050px) {
+                height: 70px;
+            }
+
+        }
+
+        .navigation-hedges{
+
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+        }
+    
+        .navigation-why-important{
+    
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+    
+        }
+    
+        .navigation-pollution-calculator{
+    
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+        }
+    
+    }
+
+  
+    .navigation-sponsor{
+
+        flex: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+
+        .side-menu-button{
+            color: black;
+        }
+
+        .app-icon-img {
+            width: 60%;
+            //height: 100%;
+        }
+
+    }
+
+}

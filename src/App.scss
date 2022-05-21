@@ -1,0 +1,32 @@
+$background-color: #43BDF5;
+$background-nav-bar-color: #FFFFFF;
+$pop-up-background-colour: rgb(197, 201, 196);
+$naviogation-button-colour: #C4C4C4; 
+$selected-button-colour: #43BDF5;
+
+.App{
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vmin;
+
+  .navigation-container{
+    flex: 1;
+    background-color: $background-nav-bar-color;
+
+    min-height: 100px;
+
+    // FIXES NAVBAR TO THE TOP OF SCREEN
+    // position:fixed;
+    // top:0;
+    // width:100%;
+    // z-index:99;
+  }
+
+  .body-container{
+    flex: 9;
+    background-color: rgb(78, 21, 212);
+  }
+
+}

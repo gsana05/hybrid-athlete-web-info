@@ -1,0 +1,74 @@
+@import '../../App.scss';
+
+.why-important-container{
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .why-important-top{
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+
+        .why-important-top-text{
+
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $background-color;
+
+
+            p{
+                line-height: 40px;
+                margin: 50px;
+            }
+
+            
+
+        }
+
+    
+
+        .why-important-top-image{
+
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $background-color;
+            background-size: contains;
+
+            .why-important-img-stats{
+                width: 60%;
+                background-size: contains;
+            }
+
+        }
+
+        @media only screen and (max-width: 1024px) {
+            flex-direction: column;
+        }
+
+    }
+
+    .why-important-bottom{
+        flex: 1;
+        background-color: $background-color;
+
+        h2{
+            margin-left: 50px;
+        }
+
+        p{
+            line-height: 40px;
+            margin-left: 50px;
+            margin-right: 50px;
+            margin-bottom: 50px;
+            margin-top: 0px;
+        }
+
+    }
+
+}
