@@ -7,6 +7,8 @@ export function AdminLogIn()  {
         console.log("Email: " + email);
         console.log("Password: " + password);
 
+        isLoggingIn(true);
+
     }
 
     // set & get email
@@ -25,6 +27,9 @@ export function AdminLogIn()  {
         setPassword(input);
     }
 
+    // set & get password
+    const [loggingIn, isLoggingIn] = useState(false);
+
     return(
         <div className='admin-login-container'>
             
@@ -39,7 +44,17 @@ export function AdminLogIn()  {
                 <p>Password</p>
                 <input className='measurements input'  type="password" onChange={setPasswordInput} value={password} />
 
-                <button className='login-button measurements' onClick={logAdminUserIn}>Login</button>
+                {loggingIn === false && 
+
+                    <button className='login-button measurements' onClick={logAdminUserIn}>Login</button>
+
+                }
+
+                {loggingIn === true && 
+                    <div className="loader"></div>
+                }
+                
+                
 
             </div>
 
