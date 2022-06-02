@@ -7,6 +7,7 @@ import { Navigation } from './features/navigation/Navigation';
 import { AboutMe } from './features/aboutMe/AboutMe';
 import { HybridAthlete } from './features/hybridAthlete/HybridAthlete';
 import { Programs } from './features/programs/Programs';
+import { AdminLogIn } from './features/adminLogIn/AdminLogin';
 import {changePageIndex, tabTracker} from './features/navigation/navigationSlice';
 import { useSelector, useDispatch } from 'react-redux';// hooks 
 
@@ -33,6 +34,8 @@ function App() {
         {tabTrackerIndex === 3 && <HybridAthlete/>}
 
         {tabTrackerIndex === 4 && <Programs/>}
+
+        {tabTrackerIndex === 5 && <AdminLogIn/>}
 
       </div>
 

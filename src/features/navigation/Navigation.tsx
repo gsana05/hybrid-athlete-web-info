@@ -86,7 +86,14 @@ export function Navigation()  {
                 //window.alert("3");
                 changePageIndexTab(4);
                 break; 
-             } 
+             }
+             case 5: { 
+                //statements; 
+                tabTrackerIndex = 5;
+                //window.alert("3");
+                changePageIndexTab(5);
+                break; 
+             }  
             default: { 
                //statements; 
                break; 
@@ -191,6 +198,12 @@ export function Navigation()  {
                     <div className='navigation-pollution-calculator'>
 
                         <button onClick={() => changePage(4) }  className={`base-class ${tabTrackerIndex === 4 ?  'navigation-buttons-selected' : 'navigation-buttons' }`} type="button">Training programs</button>
+
+                    </div>
+
+                    <div className='navigation-pollution-calculator'>
+
+                        <button onClick={() => changePage(5) }  className={`base-class ${tabTrackerIndex === 5 ?  'navigation-buttons-selected' : 'navigation-buttons' }`} type="button">Log in</button>
 
                     </div>
 

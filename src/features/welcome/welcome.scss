@@ -2,14 +2,21 @@
 
 .why-important-container{
 
-    display: flex;
     flex-direction: column;
     height: 100%;
-
+    width: 100%;
+    
+    
     .why-important-top{
-        flex: 1;
+        height: 90vh;
         display: flex;
         flex-direction: row;
+        background-image: url("../../me-alt-arm.jpg"); /* The image used */
+        background-color: #cccccc; /* Used if the image is unavailable */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: 100% 100%;
+        opacity: 0.5;
 
         .why-important-top-text{
 
@@ -17,55 +24,65 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: $background-color;
+            flex-direction: column;
 
+            h1{
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                font-size: 100px;
+                color: white;
+                text-decoration: none;
+                border-bottom: white 10px solid;
+                margin: 0;
+                padding: 0;
+                letter-spacing: 10px;
+                font-family: 'Crete Round', serif;
+            }
 
             p{
-                line-height: 40px;
-                margin: 50px;
+                flex: 1;
+                font-size: 50px;
+                color: white;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+                font-family: 'Crete Round', serif;
+                margin-top: 40px;
+                margin-left: 40px;
+                margin-right: 40px;
             }
 
-            
-
-        }
-
-    
-
-        .why-important-top-image{
-
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: $background-color;
-            background-size: contains;
-
-            .why-important-img-stats{
-                width: 60%;
-                background-size: contains;
-            }
-
-        }
-
-        @media only screen and (max-width: 1024px) {
-            flex-direction: column;
         }
 
     }
 
     .why-important-bottom{
-        flex: 1;
-        background-color: $background-color;
+      
+        height: 100vh;
+        //flex: 1;
+        display: flex;
+        flex-direction: row;
+
+        background-image: url("../../background-image-test.jpg"); /* The image used */
+        background-color: #cccccc; /* Used if the image is unavailable */
+        
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Do not repeat the image */
+        background-size: 100% 100%;
+
+        background-color: aqua;
 
         h2{
-            margin-left: 50px;
+            margin-left: 0px;
         }
 
         p{
-            line-height: 40px;
+            line-height: 20px;
             margin-left: 50px;
             margin-right: 50px;
-            margin-bottom: 50px;
+            margin-bottom: 0px;
             margin-top: 0px;
         }
 
