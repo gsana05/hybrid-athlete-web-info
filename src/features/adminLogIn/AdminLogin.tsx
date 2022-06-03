@@ -1,15 +1,49 @@
 import './adminLogin.scss';
 import React, { useRef, useState, useEffect  } from "react";
-import {firebase} from '../../firebase'
+import {firebase} from '../../firebase';
+import { useSelector, useDispatch } from 'react-redux';// hooks
+import {logAdminUserInAuth, isUserLoggedIn} from './adminLoginSlice'; 
+import {loggingAdminIn} from '../../services/authentication';
+import { FirebaseError } from 'firebase/app';
 
 export function AdminLogIn()  {
 
-    const logAdminUserIn = () => {
+    const dispatch = useDispatch();// hooks
+    let loggedIn = useSelector(isUserLoggedIn) // hooks
+
+    const hasAdminUserLoggedIn = (adminLoggedIn : boolean) => {
+        dispatch(logAdminUserInAuth(adminLoggedIn));
+    }
+
+    if(loggedIn){
+        //alert("Already logged in");
+    }
+
+    const logAdminUserIn = async () => {
         console.log("Email: " + email);
         console.log("Password: " + password);
 
         isLoggingIn(true);
-        console.log(firebase);
+
+
+        try{
+            const i = await loggingAdminIn(email, password); 
+            const error = i as FirebaseError;
+            
+            if(error.code !== undefined){
+                alert(error.code);
+            }
+            else{
+                alert("Success logged in");
+                hasAdminUserLoggedIn(true);
+            }
+            
+            isLoggingIn(false);
+        }catch(error){
+            alert("Here:: " + error);
+            isLoggingIn(false);
+            hasAdminUserLoggedIn(false);
+        } 
 
 
 
