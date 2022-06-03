@@ -1,5 +1,6 @@
 import './adminLogin.scss';
 import React, { useRef, useState, useEffect  } from "react";
+import {firebase} from '../../firebase'
 
 export function AdminLogIn()  {
 
@@ -8,6 +9,9 @@ export function AdminLogIn()  {
         console.log("Password: " + password);
 
         isLoggingIn(true);
+        console.log(firebase);
+
+
 
     }
 
