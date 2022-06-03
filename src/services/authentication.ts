@@ -12,6 +12,20 @@ export function getHedgesFromDatabase() {
   ];
 
 
+export async function retrieveUserId() : Promise<string>{
+
+    if(auth.currentUser != null){
+        return auth.currentUser.uid; 
+    }
+    else{
+        return "";
+    }
+
+  
+
+}
+
+
 export async function loggingAdminIn(email : string, password : string){
     try{
 
@@ -22,7 +36,7 @@ export async function loggingAdminIn(email : string, password : string){
 
     }
     catch(error){
-        
+
         //alert("FIREBASE FAILED: " + error + "Email: " + email);
         return new Promise((resolve: Function) => {
             const firebaseError = error as FirebaseError;

@@ -3,10 +3,14 @@ import React, { useRef, useState, useEffect  } from "react";
 import {firebase} from '../../firebase';
 import { useSelector, useDispatch } from 'react-redux';// hooks
 import {logAdminUserInAuth, isUserLoggedIn} from './adminLoginSlice'; 
-import {loggingAdminIn} from '../../services/authentication';
+import {loggingAdminIn, retrieveUserId} from '../../services/authentication';
 import { FirebaseError } from 'firebase/app';
 
 export function AdminLogIn()  {
+
+    useEffect( () => {
+        checkedIfLoggedIn();
+    }, [])
 
     const dispatch = useDispatch();// hooks
     let loggedIn = useSelector(isUserLoggedIn) // hooks
@@ -15,9 +19,18 @@ export function AdminLogIn()  {
         dispatch(logAdminUserInAuth(adminLoggedIn));
     }
 
-    if(loggedIn){
-        //alert("Already logged in");
+    // check if user has already logged in after ui is set up -useEffect 
+    const checkedIfLoggedIn = async () => {
+        const userId = await retrieveUserId();
+        if(userId.length === 0){
+            alert("NOT logged in");
+        }
+        else{
+            alert("Already logged in");
+        }
     }
+
+
 
     const logAdminUserIn = async () => {
         console.log("Email: " + email);
