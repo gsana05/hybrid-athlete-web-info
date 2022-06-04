@@ -4,11 +4,31 @@ import { useSelector, useDispatch } from 'react-redux';// hooks
 import logo from '../../hybridathletelogo.png';
 import { useNavigate, useParams } from 'react-router-dom';
 import {changePageIndex, tabTracker} from './navigationSlice';
-import React, { useLayoutEffect, useState } from 'react';
+import { setAuthentication } from '../../services/authenticationSlice';
+import React, { useLayoutEffect, useState, useEffect } from 'react';
 import * as FaIcons from "react-icons/fa";
+import {loggingAdminIn, retrieveUserId} from '../../services/authentication';
 
 
 export function Navigation()  {
+
+
+    const checkedIfLoggedIn = async () => {
+        const userId = await retrieveUserId();
+        if(userId.length === 0){
+            //statements; 
+            tabTrackerIndex = 5;
+            changePageIndexTab(5);
+            setAuthentication(false);
+            dispatch(setAuthentication(false));
+        }
+        else{
+            tabTrackerIndex = 6;
+            changePageIndexTab(6);
+            setAuthentication(true);
+            dispatch(setAuthentication(true));
+        }
+    }
 
     let [isSmallScreen, setScreen] = useState(false); // deal with screen size for burger button under 1024 or above 
     let [isSideMenuOpen, setSideMenu] = useState(false); // hide and show side menu on small devices
@@ -88,10 +108,9 @@ export function Navigation()  {
                 break; 
              }
              case 5: { 
-                //statements; 
-                tabTrackerIndex = 5;
-                //window.alert("3");
-                changePageIndexTab(5);
+
+                checkedIfLoggedIn();
+                
                 break; 
              }  
             default: { 

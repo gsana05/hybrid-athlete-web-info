@@ -3,8 +3,10 @@ import React, { useRef, useState, useEffect  } from "react";
 import {firebase} from '../../firebase';
 import { useSelector, useDispatch } from 'react-redux';// hooks
 import {logAdminUserInAuth, isUserLoggedIn} from './adminLoginSlice'; 
-import {loggingAdminIn, retrieveUserId} from '../../services/authentication';
+import {loggingAdminIn, retrieveUserId, } from '../../services/authentication';
 import { FirebaseError } from 'firebase/app';
+import { setAuthentication } from '../../services/authenticationSlice';
+import {changePageIndex, tabTracker} from '../navigation/navigationSlice';
 
 export function AdminLogIn()  {
 
@@ -21,12 +23,13 @@ export function AdminLogIn()  {
 
     // check if user has already logged in after ui is set up -useEffect 
     const checkedIfLoggedIn = async () => {
+        //window.alert("Checking");
         const userId = await retrieveUserId();
         if(userId.length === 0){
-            alert("NOT logged in");
+           // alert("NOT logged in");
         }
         else{
-            alert("Already logged in");
+           // alert("Already logged in");
         }
     }
 
@@ -49,6 +52,10 @@ export function AdminLogIn()  {
             else{
                 alert("Success logged in");
                 hasAdminUserLoggedIn(true);
+                setAuthentication(true);
+                dispatch(setAuthentication(true));
+                dispatch(changePageIndex(6));
+
             }
             
             isLoggingIn(false);
