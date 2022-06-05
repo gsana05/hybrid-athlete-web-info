@@ -12,20 +12,6 @@ export function getHedgesFromDatabase() {
     { id: 123, name: 'Appleeeee', reduced: 40}
   ];
 
-
-// export async function retrieveUserId() : Promise<string>{
-
-//     if(auth.currentUser != null){
-//         return auth.currentUser.uid; 
-//     }
-//     else{
-//         return "";
-//     }
-
-  
-
-// }
-
 export async function LogOutUser() : Promise<boolean>{
     const signout = await getAuth().signOut();
     return true;
