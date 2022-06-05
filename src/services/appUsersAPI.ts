@@ -3,9 +3,8 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import {auth, db} from '../firebase';
 import { FirebaseError } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import firestore from '@react-native-firebase/firestore';
 import React, { useEffect } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, onSnapshot } from 'firebase/firestore';
 
 const usersCollectionRef = collection(db, "Users");
 
@@ -32,4 +31,29 @@ export async function getAllUsers() : Promise<string[]> {
         throw Error("");
     }
 
+}
+
+
+export async function listenerForAllUsers() : Promise<string[]> {
+
+    let allEmails : Array<string> =[];
+
+    return new Promise((resolve, reject) => {
+        const subscribe = onSnapshot(usersCollectionRef, (snapshot) => {
+            snapshot.docs.forEach((doc) => {
+                const email = doc.data().email;
+                allEmails.push(email);
+                //console.log(allEmails.length);
+            })
+
+            resolve(allEmails);
+
+            
+            
+        }); 
+
+        //subscribe(); // when you call this it stops listening
+    })
+
+    
 }

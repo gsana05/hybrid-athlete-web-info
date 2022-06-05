@@ -3,7 +3,7 @@ import { setAuthentication } from '../../services/authenticationSlice';
 import {changePageIndex, tabTracker} from '../navigation/navigationSlice';
 import { useSelector, useDispatch } from 'react-redux';// 
 import React, { useEffect } from 'react';
-import { getAllUsers } from '../../services/appUsersAPI';
+import { getAllUsers, listenerForAllUsers } from '../../services/appUsersAPI';
 
 export function AppUsers()  {
 
@@ -30,12 +30,12 @@ export function AppUsers()  {
         const getUsers = async () => {
 
             try{
-                const emails = await getAllUsers();
+                const emails = await listenerForAllUsers();
               
                 console.log(emails.length);
 
                 emails.forEach((data) => {
-                    console.log(data);
+                    console.log("got it" + data);
                 })
                 
             }catch(error){
