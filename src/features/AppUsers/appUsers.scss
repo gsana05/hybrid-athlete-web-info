@@ -1,6 +1,6 @@
 @import '../../App.scss';
 
-.admin-login-container{
+.admin-users-container{
 
     display: flex;
     justify-content: center;
@@ -8,72 +8,41 @@
     height: 100%;
     width: 100%;
 
-    .login-container{
-
+    .admin-users-emails{
+        flex: 1;
+        height: 100%;
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
-        height: 50%;
-        width: 50%;
-        background-color: $background-color;
 
-        .loader {
-            margin-top: 20px;
-            border: 6px solid #f3f3f3; /* Light grey */
-            border-top: 6px solid #3498db; /* Blue */
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            animation: spin 2s linear infinite;
-        }
+        ul{
+            list-style-type: none; /* Remove bullets */
 
-        /* Safari */
-        @-webkit-keyframes spin {
-            0% { -webkit-transform: rotate(0deg); }
-            100% { -webkit-transform: rotate(360deg); }
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-          
-        
+            li{
+                display: flex;
 
-        .measurements{
-            width: 50%;
-        }
+                p{
+                    font-weight: bold;
+                }
 
-        p, h1{
-            margin: 0;
-            padding: 0;
-        }
+                input{
+                    background-color: aqua;
+                }
 
-        p{
-            margin-top: 10px;
-        }
+            }
 
-        .login-button{
-            margin-top: 20px;
-            border-radius: 20px;
-            //color: black;
-            padding: 7px 16px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .input{
-            padding: 7px 16px;
-            border-radius: 20px;
-            margin-top: 10px;
-            border-style: solid;
-            border-color: white;
         }
 
     }
+
+    .admin-users-send-emails{
+        flex: 1;
+        background-color: aqua;
+        height: 100%;
+        width: 100%;
+        
+    }
+   
 
 }

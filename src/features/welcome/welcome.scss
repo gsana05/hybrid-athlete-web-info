@@ -11,12 +11,12 @@
         height: 90vh;
         display: flex;
         flex-direction: row;
-        background-image: url("../../me-alt-arm.jpg"); /* The image used */
+        background-image: url("../../blur_me.png"); /* The image used */
         background-color: #cccccc; /* Used if the image is unavailable */
         background-position: center; /* Center the image */
         background-repeat: no-repeat; /* Do not repeat the image */
         background-size: 100% 100%;
-        opacity: 0.5;
+        //opacity: 0.5;
 
         .why-important-top-text{
 
@@ -58,6 +58,139 @@
 
     }
 
+    .why-important-middle{
+      
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-shadow: 8px 8px 10px #0000008c;
+        background-color: #343a40;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%239C92AC' fill-opacity='0.25' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), linear-gradient(to right top, #343a40, #2b2c31, #211f22, #151314, #000000);
+
+        .why-important-middle-left{
+            flex: 1;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            .why-important-middle-left-top{
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                height: 100%;
+                width: 100%;
+            }
+
+            .why-important-middle-left-bottom{
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: 100%;
+
+                .why-important-middle-image{
+                    width: 80%;
+                    height: 80%;
+                    border-radius: 100%;
+                    background-size: contain;
+                }
+
+            }
+
+
+            
+
+        }
+
+        .why-important-middle-right{
+            flex: 1;
+            //background-color: rgb(70, 50, 141);
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+
+            .why-important-middle-right-heading{
+                flex: 2;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+            }
+
+            .why-important-middle-right-information{
+                flex: 6;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                flex-direction: column;
+
+            }
+
+            .why-important-middle-right-button{
+                flex: 2;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .get-app-button{
+                    width: 50%;
+                    padding: 20px;
+                    border-radius: 20px;
+                    border-style: none;
+                    font-size: 20px;
+                    background-color: $selected-button-colour;
+                    color: white;
+                    font-weight: 800;
+                }
+
+            }
+
+            h2, h3, p {
+                padding: 0;
+                margin: 0;
+                color: white;
+            }
+
+            h2{
+                font-size: 40px;
+            }
+
+            h3{
+                margin-top: 20px;
+                margin-bottom: 20px;
+                font-size: 20px;
+            }
+
+            p{
+                font-size: 18px;
+                letter-spacing: 2px;
+                font-weight: 600;
+
+            }
+
+
+        }
+        
+
+    }
+
     .why-important-bottom{
       
         height: 100vh;
@@ -73,6 +206,7 @@
         background-size: 100% 100%;
 
         background-color: aqua;
+        
 
         h2{
             margin-left: 0px;
