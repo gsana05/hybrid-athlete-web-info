@@ -3,6 +3,8 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import {auth} from '../firebase';
 import { FirebaseError } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+import { async } from '@firebase/util';
+import { getUser } from '../services/appUsersAPI';
 
 export function getHedgesFromDatabase() {
     return ImagesForUI
@@ -39,8 +41,22 @@ export async function loggingAdminIn(email : string, password : string){
 
         const loggingIn = await signInWithEmailAndPassword(auth, email, password);
         const userId = loggingIn.user.uid;
-        //alert("FIREBASE LOGGED IN");
-        return new Promise((resolve: Function) => { resolve(userId); });
+
+        const checkUser = await checkUserType(userId);
+        if(checkUser === true){
+            return new Promise((resolve: Function) => { resolve(userId); });
+        }
+        else{
+
+            await LogOutUser(); 
+
+            return new Promise((resolve: Function) => {
+                throw new Error("You are not an admin");
+            });
+
+        }
+
+        
 
     }
     catch(error){
@@ -52,4 +68,18 @@ export async function loggingAdminIn(email : string, password : string){
         });
 
     }
+}
+
+export async function checkUserType(userId : string) : Promise<boolean> {
+
+    try{
+      const result = await getUser(userId);
+      alert("Got user ***");
+      console.log("RESULT: " + result);
+      return result; 
+    }catch(error){
+        throw Error("");
+    }
+
+
 }
